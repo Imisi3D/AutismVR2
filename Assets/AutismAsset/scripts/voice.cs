@@ -17,17 +17,17 @@ public class voice : MonoBehaviour
     public Animator anim;
     
 
-    List<string> answer1 = new List<string>(){ "ail",
-                                                    "email",
-                                                    "female",
-                                                    "mail",
-                                                    "male",
-                                                    "wail",
-                                                    "wale",
-                                                    "cmale",
-                                                    "when"
-                                                    };
-    List<string> yesNo = new List<string>(){"yes","no"};
+    // List<string> answer1 = new List<string>(){ "ail",
+    //                                                 "email",
+    //                                                 "female",
+    //                                                 "mail",
+    //                                                 "male",
+    //                                                 "wail",
+    //                                                 "wale",
+    //                                                 "cmale",
+    //                                                 "when"
+    //                                                 };
+    // List<string> yesNo = new List<string>(){"yes","no"};
 
     void Start()
     {
@@ -39,6 +39,7 @@ public class voice : MonoBehaviour
         currentAudio = 0;
         // anim.speed = 0;
         asabeVoice.Play();
+
         Invoke("changetext", asabeVoice.clip.length);
 
     }
@@ -54,105 +55,111 @@ public class voice : MonoBehaviour
     }
     void Update()
     {
-        if(!asabeVoice.isPlaying && AudioSpeech.text == "speech1")
-        {
-            AudioSpeech.text = "speech2";
-            asabeVoice.clip=allSpeech[1];
-            asabeVoice.Play();
-            asabe.GetComponent<Animator>().Play("1");
-            Invoke("activateMic", asabeVoice.clip.length);
-        }
+            if(!asabeVoice.isPlaying && AudioSpeech.text == "speech1")
+         {
+            externalScript.StartRecording();
+         }
+
+
+//         if(!asabeVoice.isPlaying && AudioSpeech.text == "speech1")
+//         {
+//             AudioSpeech.text = "speech2";
+//             asabeVoice.clip=allSpeech[1];
+//             asabeVoice.Play();
+//             asabe.GetComponent<Animator>().Play("1");
+//             Invoke("activateMic", asabeVoice.clip.length);
+//         }
          
-         if(!asabeVoice.isPlaying && AudioSpeech.text == "speech2")
-        {
-            if(answer1.Contains(userResponse.text)){
-                externalScript.StopRecording();
-                asabeVoice.clip=allSpeech[2];
-                asabeVoice.Play();
-                asabe.GetComponent<Animator>().Play("1");
-                AudioSpeech.text = "speech3";
-                Invoke("activateMic",asabeVoice.clip.length);
-            }
-        }
+//          if(!asabeVoice.isPlaying && AudioSpeech.text == "speech2")
+//         {
+//             if(answer1.Contains(userResponse.text)){
+//                 externalScript.StopRecording();
+//                 asabeVoice.clip=allSpeech[2];
+//                 asabeVoice.Play();
+//                 asabe.GetComponent<Animator>().Play("1");
+//                 AudioSpeech.text = "speech3";
+//                 Invoke("activateMic",asabeVoice.clip.length);
+//             }
+//         }
 
 
-        if(!asabeVoice.isPlaying && AudioSpeech.text == "speech3")
-        {
-            if(userResponse.text == "yes"){
-                externalScript.StopRecording();
-                asabeVoice.clip=allSpeech[3];
-                asabeVoice.Play();
-                asabe.GetComponent<Animator>().Play("1");
-                AudioSpeech.text = "speech4";
-                userResponse.text = "";
-                Invoke("activateMic",asabeVoice.clip.length);
-            } else if(userResponse.text == "no"){
-                    AudioSpeech.text = "speech3";
-                    externalScript.StopRecording();
-                    asabeVoice.Play();
-                    userResponse.text = "";
-                    Invoke("activateMic",asabeVoice.clip.length);
-                     }
+//         if(!asabeVoice.isPlaying && AudioSpeech.text == "speech3")
+//         {
+//             if(userResponse.text == "yes"){
+//                 externalScript.StopRecording();
+//                 asabeVoice.clip=allSpeech[3];
+//                 asabeVoice.Play();
+//                 asabe.GetComponent<Animator>().Play("1");
+//                 AudioSpeech.text = "speech4";
+//                 userResponse.text = "";
+//                 Invoke("activateMic",asabeVoice.clip.length);
+//             } else if(userResponse.text == "no"){
+//                     AudioSpeech.text = "speech3";
+//                     externalScript.StopRecording();
+//                     asabeVoice.Play();
+//                     userResponse.text = "";
+//                     Invoke("activateMic",asabeVoice.clip.length);
+//                      }
 
-        }
+//         }
 
 
 
-        if(!asabeVoice.isPlaying && AudioSpeech.text == "speech4")
-        {
-            if(userResponse.text == "yes"){
-                externalScript.StopRecording();
-                asabeVoice.clip=allSpeech[4];
-                asabeVoice.Play();
-                asabe.GetComponent<Animator>().Play("1");
-                AudioSpeech.text = "speech5";
-                userResponse.text = "";
-                Invoke("activateMic",asabeVoice.clip.length);
-            } else if(userResponse.text == "no"){
-                    AudioSpeech.text = "speech4";
-                    externalScript.StopRecording();
-                    asabeVoice.Play();
-                    userResponse.text = "";
-                    Invoke("activateMic",asabeVoice.clip.length);
-                     }
-        }
+//         if(!asabeVoice.isPlaying && AudioSpeech.text == "speech4")
+//         {
+//             if(userResponse.text == "yes"){
+//                 externalScript.StopRecording();
+//                 asabeVoice.clip=allSpeech[4];
+//                 asabeVoice.Play();
+//                 asabe.GetComponent<Animator>().Play("1");
+//                 AudioSpeech.text = "speech5";
+//                 userResponse.text = "";
+//                 Invoke("activateMic",asabeVoice.clip.length);
+//             } else if(userResponse.text == "no"){
+//                     AudioSpeech.text = "speech4";
+//                     externalScript.StopRecording();
+//                     asabeVoice.Play();
+//                     userResponse.text = "";
+//                     Invoke("activateMic",asabeVoice.clip.length);
+//                      }
+//         }
 
-if(!asabeVoice.isPlaying && AudioSpeech.text == "speech5")
-        {
-            if(userResponse.text == "yes"){
-                externalScript.StopRecording();
-                asabeVoice.clip=allSpeech[5];
-                asabeVoice.Play();
-                asabe.GetComponent<Animator>().Play("1");
-                AudioSpeech.text = "speech6";
-                userResponse.text = "";
-                Invoke("activateMic",asabeVoice.clip.length);
-            } else if(userResponse.text == "no"){
-                    AudioSpeech.text = "speech5";
-                    externalScript.StopRecording();
-                    asabeVoice.Play();
-                    userResponse.text = "";
-                    Invoke("activateMic",asabeVoice.clip.length);
-                     }
-        }
-        if(!asabeVoice.isPlaying && AudioSpeech.text == "speech6")
-        {
-            if(userResponse.text == "yes"){
-                externalScript.StopRecording();
-                asabeVoice.clip=allSpeech[6];
-                asabeVoice.Play();
-                asabe.GetComponent<Animator>().Play("1");
-                AudioSpeech.text = "speech7";
-                userResponse.text = "";
-                Invoke("activateMic",asabeVoice.clip.length);
-            } else if(userResponse.text == "no"){
-                    AudioSpeech.text = "speech6";
-                    externalScript.StopRecording();
-                    asabeVoice.Play();
-                    userResponse.text = "";
-                   // Invoke("scene2",asabeVoice.clip.length);
-                     }
-        }
+// if(!asabeVoice.isPlaying && AudioSpeech.text == "speech5")
+//         {
+//             if(userResponse.text == "yes"){
+//                 externalScript.StopRecording();
+//                 asabeVoice.clip=allSpeech[5];
+//                 asabeVoice.Play();
+//                 asabe.GetComponent<Animator>().Play("1");
+//                 AudioSpeech.text = "speech6";
+//                 userResponse.text = "";
+//                 Invoke("activateMic",asabeVoice.clip.length);
+//             } else if(userResponse.text == "no"){
+//                     AudioSpeech.text = "speech5";
+//                     externalScript.StopRecording();
+//                     asabeVoice.Play();
+//                     userResponse.text = "";
+//                     Invoke("activateMic",asabeVoice.clip.length);
+//                      }
+//         }
+//         if(!asabeVoice.isPlaying && AudioSpeech.text == "speech6")
+//         {
+//             if(userResponse.text == "yes"){
+//                 externalScript.StopRecording();
+//                 asabeVoice.clip=allSpeech[6];
+//                 asabeVoice.Play();
+//                 asabe.GetComponent<Animator>().Play("1");
+//                 AudioSpeech.text = "speech7";
+//                 userResponse.text = "";
+//                 Invoke("activateMic",asabeVoice.clip.length);
+//             } else if(userResponse.text == "no"){
+//                     AudioSpeech.text = "speech6";
+//                     externalScript.StopRecording();
+//                     asabeVoice.Play();
+//                     userResponse.text = "";
+//                    // Invoke("scene2",asabeVoice.clip.length);
+//                      }
+//         }
         
     }
 }

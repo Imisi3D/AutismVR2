@@ -4,9 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/AutismAsset/Scenes/testing.unity
-    guid: 9b08e6f40150c714b8dfe1a230863548
-  m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: bd2c43c0291b98d4cac3f65c282ef357, type: 2}
+  m_Scenes: []
+  m_configObjects: {}
