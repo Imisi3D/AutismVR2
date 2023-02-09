@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AutismAsset/Scenes/scene0.unity
+    guid: 9b08e6f40150c714b8dfe1a230863548
+  - enabled: 1
+    path: Assets/AutismAsset/Scenes/scene1.unity
+    guid: 05195c0790fb436418f1dd1eab038baa
   m_configObjects: {}
