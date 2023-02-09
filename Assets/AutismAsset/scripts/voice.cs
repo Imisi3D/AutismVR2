@@ -11,9 +11,7 @@ public class voice : MonoBehaviour
     public VoiceProcessor externalScript;
     public AudioSource asabeVoice;
     public Text AudioSpeech;
-    public GameObject asabe;
     public Animator anim;
-
     public List<AudioClip> audioClips;
     public Text userResponse;
     private AudioSource audioSource;
@@ -106,7 +104,6 @@ public class voice : MonoBehaviour
                 case 5:
                  SceneManager.LoadScene("Scene1");
                     break;
-
             }
         }
 
